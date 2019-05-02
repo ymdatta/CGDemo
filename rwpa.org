@@ -2,7 +2,7 @@
 #+TITLE: On the Design of Display Processors
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+AUTHOR: Yelugoti Mohana Datta - IMT2016012
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil date:nil
 
 * Authors
 
@@ -100,3 +100,54 @@
    a /channel/ to display processor, which can have some special commands
    to let it follow more complex data structures, *but* if we do this, we 
    would be move into a second turn around the wheel.
+
+   Looking at commercial displays at that time, one can find many examples
+   at various points around the wheel, but none stopping exactly at one
+   revolution around the wheel.
+* General Questions
+
+** Questions:
+
+   Viewing this from a broader view, we see that there are mainly two
+   questions:
+
+   - How closer should the display system be tied to parent systems?
+   - How much computing power should be included in the display processor?      
+
+  The authors favor keeping the display close to the parent system,
+  inspite of memory problems (if it had been far, it would have separate
+  memory and we wouldn't face these).
+
+** How much computing power?
+
+   Depends on what we want to do with our display processor.
+
+  - The display processor must generate pictures from some form of 
+    internal representation, which may include multiple calls
+    on display subroutines.
+  - Display element might generate pictures from computation rather
+    than static representation in memory. (light-pens etc)
+  - Display processor might provide immediate feedback to user or handle
+    simple interactive functions such as editing, light-pen tracking.
+  - The display processor should handle rotation, scaling etc when
+    these are not handled by the display hardware.
+** Escaping the wheel
+
+   The view suggested by Daniel Bobrow that the display processor need
+   not contain general purpose computing power, largely determined the
+   design of the display processor.
+
+   General computing power should come from central resources of the
+   system, if there are no enough resources to do particular thing it's
+   fault of the system not the display. The display should mostly be concerned
+   with displaying the points. This decision let's us escape from
+   the wheel of reincarnation.
+* References:
+
+  - https://www.greatbigcanvas.com/view/dec-pdp-1-computer,1154199/
+  - https://en.wikipedia.org/wiki/History_of_computing_hardware
+  - https://archive.org/stream/sds-940/Image071017220051_djvu.txt
+  - https://en.wikipedia.org/wiki/Display_Data_Channel
+
+  *_Thank you!_*
+
