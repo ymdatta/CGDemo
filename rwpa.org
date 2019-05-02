@@ -2,6 +2,7 @@
 #+TITLE: On the Design of Display Processors
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+AUTHOR: Yelugoti Mohana Datta - IMT2016012
+#+OPTIONS: toc:nil
 
 * Authors
 
@@ -80,5 +81,22 @@
 
     [[./images/rel2.png]]
 
- 
+** 
 
+   So, if we take a look at the design, we have built up display channel
+   until it itself is a general purpose processor with a display. The
+   display is tied directly to its processor, to generate a picture the
+   display processor's central registers are used. In short, we have come
+   _exactly around once_ the wheel of reincarnation.
+
+   However, we have made significant developement, we have added support
+   for many things in the process.
+
+** 
+
+   Now, we might argue that much of display processor's power is idle most
+   of the time and that it is wasteful to tie up a general purpose processor
+   merely to refresh a static display, therefore we might consider adding
+   a /channel/ to display processor, which can have some special commands
+   to let it follow more complex data structures, *but* if we do this, we 
+   would be move into a second turn around the wheel.

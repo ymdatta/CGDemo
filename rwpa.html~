@@ -26,29 +26,32 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">On the Design of Display Processors</h1><h2 class="author">Yelugoti Mohana Datta - IMT2016012</h2><p class="date">Created: 2019-05-02 Thu 11:58</p>
+<section id="sec-title-slide"><h1 class="title">On the Design of Display Processors</h1><h2 class="author">Yelugoti Mohana Datta - IMT2016012</h2><p class="date">Created: 2019-05-02 Thu 12:27</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org331b871">1. Authors</a>
+<li><a href="#/slide-org4df3261">1. Authors</a>
 <ul>
-<li><a href="#/slide-org15ef4a5">1.1. Sketchpad</a></li>
+<li><a href="#/slide-org4c8aff3">1.1. Sketchpad</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org582882f">2. Introduction</a>
+<li><a href="#/slide-org47d64a9">2. Introduction</a>
 <ul>
-<li><a href="#/slide-orga3dcf69">2.1. Context</a></li>
-<li><a href="#/slide-orged1ea82">2.2. TX-O display</a></li>
-<li><a href="#/slide-org63af873">2.3. DEC-PDP</a></li>
+<li><a href="#/slide-org049aa1b">2.1. Context</a></li>
+<li><a href="#/slide-orgfd9cda1">2.2. TX-O display</a></li>
+<li><a href="#/slide-org50699c3">2.3. DEC-PDP</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org58b87c3">3. The Wheel of Reincarnation</a>
+<li><a href="#/slide-org2857a4c">3. The Wheel of Reincarnation</a>
 <ul>
-<li><a href="#/slide-org835b23f">3.1. Stages:</a></li>
-<li><a href="#/slide-orgcd1ffcf">3.2. Realisation:</a></li>
+<li><a href="#/slide-org9ade56d">3.1. Stages:</a></li>
+<li><a href="#/slide-org4eb4642">3.2. Realisation:</a></li>
+<li><a href="#/slide-orgadd8fda">3.3. Further improvements:</a></li>
+<li><a href="#/slide-org895aa0f">3.4. Full-Blown processor</a></li>
+<li><a href="#/slide-orga58a1cf">3.5. </a></li>
 </ul>
 </li>
 </ul>
@@ -57,8 +60,8 @@
 </section>
 
 <section>
-<section id="slide-org331b871">
-<h2 id="org331b871"><span class="section-number-2">1</span> Authors</h2>
+<section id="slide-org4df3261">
+<h2 id="org4df3261"><span class="section-number-2">1</span> Authors</h2>
 <p>
 This paper was written by T.H Myer and I.E Sutherland with inputs from
 Bolt Beranek and Newman Inc.
@@ -74,8 +77,8 @@ widely regarded as <span class="underline">father of computer graphics</span>.</
 </ul>
 
 </section>
-<section id="slide-org15ef4a5">
-<h3 id="org15ef4a5"><span class="section-number-3">1.1</span> Sketchpad</h3>
+<section id="slide-org4c8aff3">
+<h3 id="org4c8aff3"><span class="section-number-3">1.1</span> Sketchpad</h3>
 
 <div class="figure">
 <p><img src="./images/spad.jpg" alt="spad.jpg" />
@@ -84,8 +87,8 @@ widely regarded as <span class="underline">father of computer graphics</span>.</
 </section>
 </section>
 <section>
-<section id="slide-org582882f">
-<h2 id="org582882f"><span class="section-number-2">2</span> Introduction</h2>
+<section id="slide-org47d64a9">
+<h2 id="org47d64a9"><span class="section-number-2">2</span> Introduction</h2>
 <p>
 This paper talks about the flexibility and power needed in the data
 channel for computer display, it also looks at the design of the 
@@ -96,8 +99,8 @@ in associating the display with the core computer.
 </p>
 
 </section>
-<section id="slide-orga3dcf69">
-<h3 id="orga3dcf69"><span class="section-number-3">2.1</span> Context</h3>
+<section id="slide-org049aa1b">
+<h3 id="org049aa1b"><span class="section-number-3">2.1</span> Context</h3>
 <ul>
 <li>The display that the authors are designing is for SDS-940 time shared 
 computer system.
@@ -112,8 +115,8 @@ time-sharing. (Multiple users using single machine)</li>
 
 
 </section>
-<section id="slide-orged1ea82">
-<h3 id="orged1ea82"><span class="section-number-3">2.2</span> TX-O display</h3>
+<section id="slide-orgfd9cda1">
+<h3 id="orgfd9cda1"><span class="section-number-3">2.2</span> TX-O display</h3>
 
 <div class="figure">
 <p><img src="./images/TX-0.jpg" alt="TX-0.jpg" />
@@ -122,8 +125,8 @@ time-sharing. (Multiple users using single machine)</li>
 </div>
 
 </section>
-<section id="slide-org63af873">
-<h3 id="org63af873"><span class="section-number-3">2.3</span> DEC-PDP</h3>
+<section id="slide-org50699c3">
+<h3 id="org50699c3"><span class="section-number-3">2.3</span> DEC-PDP</h3>
 
 <div class="figure">
 <p><img src="./images/pdp-1.jpg" alt="pdp-1.jpg" />
@@ -133,8 +136,8 @@ time-sharing. (Multiple users using single machine)</li>
 </section>
 </section>
 <section>
-<section id="slide-org58b87c3">
-<h2 id="org58b87c3"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
+<section id="slide-org2857a4c">
+<h2 id="org2857a4c"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
 <p>
 When the authors decided to design the display processor, it got so complex
 and it resembled a full fledged computer with some special graphic features,
@@ -145,8 +148,8 @@ They called it wheel of Reincarnation.
 </p>
 
 </section>
-<section id="slide-org835b23f">
-<h3 id="org835b23f"><span class="section-number-3">3.1</span> Stages:</h3>
+<section id="slide-org9ade56d">
+<h3 id="org9ade56d"><span class="section-number-3">3.1</span> Stages:</h3>
 <ul>
 <li>Display from core's central registers.</li>
 <li>Introducing a data channel.</li>
@@ -163,8 +166,8 @@ They called it wheel of Reincarnation.
 </ul>
 
 </section>
-<section id="slide-orgcd1ffcf">
-<h3 id="orgcd1ffcf"><span class="section-number-3">3.2</span> Realisation:</h3>
+<section id="slide-org4eb4642">
+<h3 id="org4eb4642"><span class="section-number-3">3.2</span> Realisation:</h3>
 <p>
 We should realize that display data channel is not a mere data channel,
 but is a processor.
@@ -175,6 +178,42 @@ but is a processor.
 <p><img src="./images/reali.png" alt="reali.png" />
 </p>
 </div>
+
+</section>
+<section id="slide-orgadd8fda">
+<h3 id="orgadd8fda"><span class="section-number-3">3.3</span> Further improvements:</h3>
+<ul>
+<li>Introducing stack.</li>
+<li>Adding conditional commands for interactive programs.</li>
+<li>Transparency by parameter passing.</li>
+<li>Global variables support.</li>
+
+</ul>
+
+</section>
+<section id="slide-org895aa0f">
+<h3 id="org895aa0f"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
+
+<div class="figure">
+<p><img src="./images/rel2.png" alt="rel2.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orga58a1cf">
+<h3 id="orga58a1cf"><span class="section-number-3">3.5</span> </h3>
+<p>
+So, if we take a look at the design, we have built up display channel
+until it itself is a general purpose processor with a display. The
+display is tied directly to its processor, to generate a picture the
+display processor's central registers are used. In short, we have come
+<span class="underline">exactly around once</span> the wheel of reincarnation.
+</p>
+
+<p>
+However, we have made significant developement, we have added support
+for many things in the process.
+</p>
 </section>
 </section>
 </div>

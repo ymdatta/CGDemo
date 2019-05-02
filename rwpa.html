@@ -26,41 +26,12 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">On the Design of Display Processors</h1><h2 class="author">Yelugoti Mohana Datta - IMT2016012</h2><p class="date">Created: 2019-05-02 Thu 12:21</p>
-</section>
-<section id="table-of-contents">
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#/slide-org68090df">1. Authors</a>
-<ul>
-<li><a href="#/slide-orgf435b29">1.1. Sketchpad</a></li>
-</ul>
-</li>
-<li><a href="#/slide-org47d9fe9">2. Introduction</a>
-<ul>
-<li><a href="#/slide-org51e3b54">2.1. Context</a></li>
-<li><a href="#/slide-orgaed5f53">2.2. TX-O display</a></li>
-<li><a href="#/slide-orgd400e4d">2.3. DEC-PDP</a></li>
-</ul>
-</li>
-<li><a href="#/slide-org6942dac">3. The Wheel of Reincarnation</a>
-<ul>
-<li><a href="#/slide-orgb23f1f3">3.1. Stages:</a></li>
-<li><a href="#/slide-orgd715696">3.2. Realisation:</a></li>
-<li><a href="#/slide-org4340317">3.3. Further improvements:</a></li>
-<li><a href="#/slide-orgf85e110">3.4. Full-Blown processor</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+<section id="sec-title-slide"><h1 class="title">On the Design of Display Processors</h1><h2 class="author">Yelugoti Mohana Datta - IMT2016012</h2><p class="date">Created: 2019-05-02 Thu 12:28</p>
 </section>
 
 <section>
-<section id="slide-org68090df">
-<h2 id="org68090df"><span class="section-number-2">1</span> Authors</h2>
+<section id="slide-orgab15f80">
+<h2 id="orgab15f80"><span class="section-number-2">1</span> Authors</h2>
 <p>
 This paper was written by T.H Myer and I.E Sutherland with inputs from
 Bolt Beranek and Newman Inc.
@@ -76,8 +47,8 @@ widely regarded as <span class="underline">father of computer graphics</span>.</
 </ul>
 
 </section>
-<section id="slide-orgf435b29">
-<h3 id="orgf435b29"><span class="section-number-3">1.1</span> Sketchpad</h3>
+<section id="slide-org24787bc">
+<h3 id="org24787bc"><span class="section-number-3">1.1</span> Sketchpad</h3>
 
 <div class="figure">
 <p><img src="./images/spad.jpg" alt="spad.jpg" />
@@ -86,8 +57,8 @@ widely regarded as <span class="underline">father of computer graphics</span>.</
 </section>
 </section>
 <section>
-<section id="slide-org47d9fe9">
-<h2 id="org47d9fe9"><span class="section-number-2">2</span> Introduction</h2>
+<section id="slide-org3891ebb">
+<h2 id="org3891ebb"><span class="section-number-2">2</span> Introduction</h2>
 <p>
 This paper talks about the flexibility and power needed in the data
 channel for computer display, it also looks at the design of the 
@@ -98,8 +69,8 @@ in associating the display with the core computer.
 </p>
 
 </section>
-<section id="slide-org51e3b54">
-<h3 id="org51e3b54"><span class="section-number-3">2.1</span> Context</h3>
+<section id="slide-org4e4befe">
+<h3 id="org4e4befe"><span class="section-number-3">2.1</span> Context</h3>
 <ul>
 <li>The display that the authors are designing is for SDS-940 time shared 
 computer system.
@@ -114,8 +85,8 @@ time-sharing. (Multiple users using single machine)</li>
 
 
 </section>
-<section id="slide-orgaed5f53">
-<h3 id="orgaed5f53"><span class="section-number-3">2.2</span> TX-O display</h3>
+<section id="slide-org34e9bdc">
+<h3 id="org34e9bdc"><span class="section-number-3">2.2</span> TX-O display</h3>
 
 <div class="figure">
 <p><img src="./images/TX-0.jpg" alt="TX-0.jpg" />
@@ -124,8 +95,8 @@ time-sharing. (Multiple users using single machine)</li>
 </div>
 
 </section>
-<section id="slide-orgd400e4d">
-<h3 id="orgd400e4d"><span class="section-number-3">2.3</span> DEC-PDP</h3>
+<section id="slide-org838fafd">
+<h3 id="org838fafd"><span class="section-number-3">2.3</span> DEC-PDP</h3>
 
 <div class="figure">
 <p><img src="./images/pdp-1.jpg" alt="pdp-1.jpg" />
@@ -135,8 +106,8 @@ time-sharing. (Multiple users using single machine)</li>
 </section>
 </section>
 <section>
-<section id="slide-org6942dac">
-<h2 id="org6942dac"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
+<section id="slide-orgda6640e">
+<h2 id="orgda6640e"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
 <p>
 When the authors decided to design the display processor, it got so complex
 and it resembled a full fledged computer with some special graphic features,
@@ -147,8 +118,8 @@ They called it wheel of Reincarnation.
 </p>
 
 </section>
-<section id="slide-orgb23f1f3">
-<h3 id="orgb23f1f3"><span class="section-number-3">3.1</span> Stages:</h3>
+<section id="slide-org00482fc">
+<h3 id="org00482fc"><span class="section-number-3">3.1</span> Stages:</h3>
 <ul>
 <li>Display from core's central registers.</li>
 <li>Introducing a data channel.</li>
@@ -165,8 +136,8 @@ They called it wheel of Reincarnation.
 </ul>
 
 </section>
-<section id="slide-orgd715696">
-<h3 id="orgd715696"><span class="section-number-3">3.2</span> Realisation:</h3>
+<section id="slide-org73c2bdb">
+<h3 id="org73c2bdb"><span class="section-number-3">3.2</span> Realisation:</h3>
 <p>
 We should realize that display data channel is not a mere data channel,
 but is a processor.
@@ -179,8 +150,8 @@ but is a processor.
 </div>
 
 </section>
-<section id="slide-org4340317">
-<h3 id="org4340317"><span class="section-number-3">3.3</span> Further improvements:</h3>
+<section id="slide-org238d850">
+<h3 id="org238d850"><span class="section-number-3">3.3</span> Further improvements:</h3>
 <ul>
 <li>Introducing stack.</li>
 <li>Adding conditional commands for interactive programs.</li>
@@ -190,13 +161,29 @@ but is a processor.
 </ul>
 
 </section>
-<section id="slide-orgf85e110">
-<h3 id="orgf85e110"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
+<section id="slide-org48325e6">
+<h3 id="org48325e6"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
 
 <div class="figure">
 <p><img src="./images/rel2.png" alt="rel2.png" />
 </p>
 </div>
+
+</section>
+<section id="slide-org05076d6">
+<h3 id="org05076d6"><span class="section-number-3">3.5</span> </h3>
+<p>
+So, if we take a look at the design, we have built up display channel
+until it itself is a general purpose processor with a display. The
+display is tied directly to its processor, to generate a picture the
+display processor's central registers are used. In short, we have come
+<span class="underline">exactly around once</span> the wheel of reincarnation.
+</p>
+
+<p>
+However, we have made significant developement, we have added support
+for many things in the process.
+</p>
 </section>
 </section>
 </div>
