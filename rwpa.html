@@ -1,267 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2019-05-02 Thu 12:59 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
 <title>On the Design of Display Processors</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Yelugoti Mohana Datta - IMT2016012" />
+<meta name="author" content="(Yelugoti Mohana Datta - IMT2016012)"/>
 <style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+.underline { text-decoration: underline; }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/simple.css" id="theme"/>
 
 
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
 </script>
 </head>
 <body>
-<div id="content">
-<h1 class="title">On the Design of Display Processors</h1>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">On the Design of Display Processors</h1><h2 class="author">Yelugoti Mohana Datta - IMT2016012</h2><p class="date">Created: 2019-05-02 Thu 13:03</p>
+</section>
 
-<div id="outline-container-org3e34152" class="outline-2">
-<h2 id="org3e34152"><span class="section-number-2">1</span> Authors</h2>
-<div class="outline-text-2" id="text-1">
+<section>
+<section id="slide-orgc50930c">
+<h2 id="orgc50930c"><span class="section-number-2">1</span> Authors</h2>
 <p>
 This paper was written by T.H Myer and I.E Sutherland with inputs from
 Bolt Beranek and Newman Inc.
 </p>
 
-<ul class="org-ul">
+<ul>
 <li>I.E Sutherland is a computer scientist and Internet pioneer, he was 
 widely regarded as <span class="underline">father of computer graphics</span>.</li>
 
 <li>He received Turing award from Association for Computing Machinery in
 <span class="underline">1988</span> for invention of sketchpad, an early predecessor to GUI.</li>
-</ul>
-</div>
 
-<div id="outline-container-org3a1a249" class="outline-3">
-<h3 id="org3a1a249"><span class="section-number-3">1.1</span> Sketchpad</h3>
-<div class="outline-text-3" id="text-1-1">
+</ul>
+
+</section>
+<section id="slide-orgb595548">
+<h3 id="orgb595548"><span class="section-number-3">1.1</span> Sketchpad</h3>
 
 <div class="figure">
 <p><img src="./images/spad.jpg" alt="spad.jpg" />
 </p>
 </div>
-</div>
-</div>
-</div>
-<div id="outline-container-org4914966" class="outline-2">
-<h2 id="org4914966"><span class="section-number-2">2</span> Introduction</h2>
-<div class="outline-text-2" id="text-2">
+</section>
+</section>
+<section>
+<section id="slide-orgacd23fb">
+<h2 id="orgacd23fb"><span class="section-number-2">2</span> Introduction</h2>
 <p>
 This paper talks about the flexibility and power needed in the data
 channel for computer display, it also looks at the design of the 
@@ -270,51 +67,47 @@ found that making successive improvements to design of display processor
 lie on a circular path. It also talks about the various challenges faced
 in associating the display with the core computer.
 </p>
-</div>
 
-<div id="outline-container-org5454f99" class="outline-3">
-<h3 id="org5454f99"><span class="section-number-3">2.1</span> Context</h3>
-<div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
+</section>
+<section id="slide-orgacdd199">
+<h3 id="orgacdd199"><span class="section-number-3">2.1</span> Context</h3>
+<ul>
 <li>The display that the authors are designing is for SDS-940 time shared 
 computer system.
 
-<ul class="org-ul">
+<ul>
 <li>SDS-940 was the first machine designed to directly support
 time-sharing. (Multiple users using single machine)</li>
+
 </ul></li>
+
 </ul>
-</div>
-</div>
 
 
-<div id="outline-container-orgd9d08e4" class="outline-3">
-<h3 id="orgd9d08e4"><span class="section-number-3">2.2</span> TX-O display</h3>
-<div class="outline-text-3" id="text-2-2">
+</section>
+<section id="slide-orgb489d10">
+<h3 id="orgb489d10"><span class="section-number-3">2.2</span> TX-O display</h3>
 
 <div class="figure">
 <p><img src="./images/TX-0.jpg" alt="TX-0.jpg" />
 </p>
 <p><span class="figure-number">Figure 2: </span>TX-0 display</p>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org41f546b" class="outline-3">
-<h3 id="org41f546b"><span class="section-number-3">2.3</span> DEC-PDP</h3>
-<div class="outline-text-3" id="text-2-3">
+</section>
+<section id="slide-org0dc08cf">
+<h3 id="org0dc08cf"><span class="section-number-3">2.3</span> DEC-PDP</h3>
 
 <div class="figure">
 <p><img src="./images/pdp-1.jpg" alt="pdp-1.jpg" />
 </p>
 <p><span class="figure-number">Figure 3: </span>DEC-PDP</p>
 </div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgcdad2d4" class="outline-2">
-<h2 id="orgcdad2d4"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
-<div class="outline-text-2" id="text-3">
+</section>
+</section>
+<section>
+<section id="slide-org3a7f376">
+<h2 id="org3a7f376"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
 <p>
 When the authors decided to design the display processor, it got so complex
 and it resembled a full fledged computer with some special graphic features,
@@ -323,29 +116,28 @@ second, subsidary processor, which itself began to grow in size, it continued
 and authors found that they were stuck in this never ending cyclic process.
 They called it wheel of Reincarnation.
 </p>
-</div>
 
-<div id="outline-container-org8576df9" class="outline-3">
-<h3 id="org8576df9"><span class="section-number-3">3.1</span> Stages:</h3>
-<div class="outline-text-3" id="text-3-1">
-<ul class="org-ul">
+</section>
+<section id="slide-org77a7f6e">
+<h3 id="org77a7f6e"><span class="section-number-3">3.1</span> Stages:</h3>
+<ul>
 <li>Display from core's central registers.</li>
 <li>Introducing a data channel.</li>
 <li>Drawing lines and characters.</li>
 <li>Introducing
-<ul class="org-ul">
+<ul>
 <li>HALT command.</li>
 <li>JUMP command.</li>
 <li>Subroutine feature for repetitive symbols.</li>
 <li>Store-exit command.</li>
-</ul></li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-orgc35be97" class="outline-3">
-<h3 id="orgc35be97"><span class="section-number-3">3.2</span> Realisation:</h3>
-<div class="outline-text-3" id="text-3-2">
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org977e637">
+<h3 id="org977e637"><span class="section-number-3">3.2</span> Realisation:</h3>
 <p>
 We should realize that display data channel is not a mere data channel,
 but is a processor.
@@ -356,35 +148,30 @@ but is a processor.
 <p><img src="./images/reali.png" alt="reali.png" />
 </p>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org3774355" class="outline-3">
-<h3 id="org3774355"><span class="section-number-3">3.3</span> Further improvements:</h3>
-<div class="outline-text-3" id="text-3-3">
-<ul class="org-ul">
+</section>
+<section id="slide-orged13ecb">
+<h3 id="orged13ecb"><span class="section-number-3">3.3</span> Further improvements:</h3>
+<ul>
 <li>Introducing stack.</li>
 <li>Adding conditional commands for interactive programs.</li>
 <li>Transparency by parameter passing.</li>
 <li>Global variables support.</li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-org83adc87" class="outline-3">
-<h3 id="org83adc87"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
-<div class="outline-text-3" id="text-3-4">
+</ul>
+
+</section>
+<section id="slide-org4e76300">
+<h3 id="org4e76300"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
 
 <div class="figure">
 <p><img src="./images/rel2.png" alt="rel2.png" />
 </p>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org175ba63" class="outline-3">
-<h3 id="org175ba63"><span class="section-number-3">3.5</span> </h3>
-<div class="outline-text-3" id="text-3-5">
+</section>
+<section id="slide-org9ce28f9">
+<h3 id="org9ce28f9"><span class="section-number-3">3.5</span> </h3>
 <p>
 So, if we take a look at the design, we have built up display channel
 until it itself is a general purpose processor with a display. The
@@ -397,12 +184,10 @@ display processor's central registers are used. In short, we have come
 However, we have made significant developement, we have added support
 for many things in the process.
 </p>
-</div>
-</div>
 
-<div id="outline-container-org54038fc" class="outline-3">
-<h3 id="org54038fc"><span class="section-number-3">3.6</span> </h3>
-<div class="outline-text-3" id="text-3-6">
+</section>
+<section id="slide-orga40659b">
+<h3 id="orga40659b"><span class="section-number-3">3.6</span> </h3>
 <p>
 Now, we might argue that much of display processor's power is idle most
 of the time and that it is wasteful to tie up a general purpose processor
@@ -417,24 +202,25 @@ Looking at commercial displays at that time, one can find many examples
 at various points around the wheel, but none stopping exactly at one
 revolution around the wheel.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orga1e923e" class="outline-2">
-<h2 id="orga1e923e"><span class="section-number-2">4</span> General Questions</h2>
+</section>
+</section>
+<section>
+<section id="slide-orga698945">
+<h2 id="orga698945"><span class="section-number-2">4</span> General Questions</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org546a91d" class="outline-3">
-<h3 id="org546a91d"><span class="section-number-3">4.1</span> Questions:</h3>
-<div class="outline-text-3" id="text-4-1">
+</section>
+<section id="slide-orgf28bea7">
+<h3 id="orgf28bea7"><span class="section-number-3">4.1</span> Questions:</h3>
 <p>
 Viewing this from a broader view, we see that there are mainly two
 questions:
 </p>
 
-<ul class="org-ul">
+<ul>
 <li>How closer should the display system be tied to parent systems?</li>
 <li>How much computing power should be included in the display processor?</li>
+
 </ul>
 
 <p>
@@ -442,17 +228,15 @@ The authors favor keeping the display close to the parent system,
 inspite of memory problems (if it had been far, it would have separate
 memory and we wouldn't face these).
 </p>
-</div>
-</div>
 
-<div id="outline-container-org3984a8c" class="outline-3">
-<h3 id="org3984a8c"><span class="section-number-3">4.2</span> How much computing power?</h3>
-<div class="outline-text-3" id="text-4-2">
+</section>
+<section id="slide-org8ee1976">
+<h3 id="org8ee1976"><span class="section-number-3">4.2</span> How much computing power?</h3>
 <p>
 Depends on what we want to do with our display processor.
 </p>
 
-<ul class="org-ul">
+<ul>
 <li>The display processor must generate pictures from some form of 
 internal representation, which may include multiple calls
 on display subroutines.</li>
@@ -462,12 +246,11 @@ than static representation in memory. (light-pens etc)</li>
 simple interactive functions such as editing, light-pen tracking.</li>
 <li>The display processor should handle rotation, scaling etc when
 these are not handled by the display hardware.</li>
+
 </ul>
-</div>
-</div>
-<div id="outline-container-org711e892" class="outline-3">
-<h3 id="org711e892"><span class="section-number-3">4.3</span> Escaping the wheel</h3>
-<div class="outline-text-3" id="text-4-3">
+</section>
+<section id="slide-org8c88dfe">
+<h3 id="org8c88dfe"><span class="section-number-3">4.3</span> Escaping the wheel</h3>
 <p>
 The view suggested by Daniel Bobrow that the display processor need
 not contain general purpose computing power, largely determined the
@@ -481,29 +264,60 @@ fault of the system not the display. The display should mostly be concerned
 with displaying the points. This decision let's us escape from
 the wheel of reincarnation.
 </p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgeea8145" class="outline-2">
-<h2 id="orgeea8145"><span class="section-number-2">5</span> References:</h2>
-<div class="outline-text-2" id="text-5">
-<ul class="org-ul">
+</section>
+</section>
+<section>
+<section id="slide-orga013893">
+<h2 id="orga013893"><span class="section-number-2">5</span> References:</h2>
+<ul>
 <li><a href="https://www.greatbigcanvas.com/view/dec-pdp-1-computer,1154199/">https://www.greatbigcanvas.com/view/dec-pdp-1-computer,1154199/</a></li>
 <li><a href="https://en.wikipedia.org/wiki/History_of_computing_hardware">https://en.wikipedia.org/wiki/History_of_computing_hardware</a></li>
 <li><a href="https://archive.org/stream/sds-940/Image071017220051_djvu.txt">https://archive.org/stream/sds-940/Image071017220051_djvu.txt</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Display_Data_Channel">https://en.wikipedia.org/wiki/Display_Data_Channel</a></li>
+
 </ul>
 
 <p>
 <b><span class="underline">Thank you!</span></b>
 </p>
+</section>
+</section>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: Yelugoti Mohana Datta - IMT2016012</p>
-<p class="date">Created: 2019-05-02 Thu 12:59</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
-</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
 </body>
 </html>
