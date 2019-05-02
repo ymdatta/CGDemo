@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>On the Design of Display Processors</title>
+<meta name="author" content="(Yelugoti Mohana Datta - IMT2016012)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/simple.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">On the Design of Display Processors</h1><h2 class="author">Yelugoti Mohana Datta - IMT2016012</h2><p class="date">Created: 2019-05-02 Thu 11:58</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org331b871">1. Authors</a>
+<ul>
+<li><a href="#/slide-org15ef4a5">1.1. Sketchpad</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org582882f">2. Introduction</a>
+<ul>
+<li><a href="#/slide-orga3dcf69">2.1. Context</a></li>
+<li><a href="#/slide-orged1ea82">2.2. TX-O display</a></li>
+<li><a href="#/slide-org63af873">2.3. DEC-PDP</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org58b87c3">3. The Wheel of Reincarnation</a>
+<ul>
+<li><a href="#/slide-org835b23f">3.1. Stages:</a></li>
+<li><a href="#/slide-orgcd1ffcf">3.2. Realisation:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org331b871">
+<h2 id="org331b871"><span class="section-number-2">1</span> Authors</h2>
+<p>
+This paper was written by T.H Myer and I.E Sutherland with inputs from
+Bolt Beranek and Newman Inc.
+</p>
+
+<ul>
+<li>I.E Sutherland is a computer scientist and Internet pioneer, he was 
+widely regarded as <span class="underline">father of computer graphics</span>.</li>
+
+<li>He received Turing award from Association for Computing Machinery in
+<span class="underline">1988</span> for invention of sketchpad, an early predecessor to GUI.</li>
+
+</ul>
+
+</section>
+<section id="slide-org15ef4a5">
+<h3 id="org15ef4a5"><span class="section-number-3">1.1</span> Sketchpad</h3>
+
+<div class="figure">
+<p><img src="./images/spad.jpg" alt="spad.jpg" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org582882f">
+<h2 id="org582882f"><span class="section-number-2">2</span> Introduction</h2>
+<p>
+This paper talks about the flexibility and power needed in the data
+channel for computer display, it also looks at the design of the 
+display processor (control part of the display) and how it was 
+found that making successive improvements to design of display processor
+lie on a circular path. It also talks about the various challenges faced
+in associating the display with the core computer.
+</p>
+
+</section>
+<section id="slide-orga3dcf69">
+<h3 id="orga3dcf69"><span class="section-number-3">2.1</span> Context</h3>
+<ul>
+<li>The display that the authors are designing is for SDS-940 time shared 
+computer system.
+
+<ul>
+<li>SDS-940 was the first machine designed to directly support
+time-sharing. (Multiple users using single machine)</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+<section id="slide-orged1ea82">
+<h3 id="orged1ea82"><span class="section-number-3">2.2</span> TX-O display</h3>
+
+<div class="figure">
+<p><img src="./images/TX-0.jpg" alt="TX-0.jpg" />
+</p>
+<p><span class="figure-number">Figure 2: </span>TX-0 display</p>
+</div>
+
+</section>
+<section id="slide-org63af873">
+<h3 id="org63af873"><span class="section-number-3">2.3</span> DEC-PDP</h3>
+
+<div class="figure">
+<p><img src="./images/pdp-1.jpg" alt="pdp-1.jpg" />
+</p>
+<p><span class="figure-number">Figure 3: </span>DEC-PDP</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org58b87c3">
+<h2 id="org58b87c3"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
+<p>
+When the authors decided to design the display processor, it got so complex
+and it resembled a full fledged computer with some special graphic features,
+and then a strange thing happened, the authors were compelled to add a 
+second, subsidary processor, which itself began to grow in size, it continued
+and authors found that they were stuck in this never ending cyclic process.
+They called it wheel of Reincarnation.
+</p>
+
+</section>
+<section id="slide-org835b23f">
+<h3 id="org835b23f"><span class="section-number-3">3.1</span> Stages:</h3>
+<ul>
+<li>Display from core's central registers.</li>
+<li>Introducing a data channel.</li>
+<li>Drawing lines and characters.</li>
+<li>Introducing
+<ul>
+<li>HALT command.</li>
+<li>JUMP command.</li>
+<li>Subroutine feature for repetitive symbols.</li>
+<li>Store-exit command.</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgcd1ffcf">
+<h3 id="orgcd1ffcf"><span class="section-number-3">3.2</span> Realisation:</h3>
+<p>
+We should realize that display data channel is not a mere data channel,
+but is a processor.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/reali.png" alt="reali.png" />
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

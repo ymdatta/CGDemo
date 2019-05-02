@@ -1,0 +1,84 @@
+#+REVEAL_THEME: simple
+#+TITLE: On the Design of Display Processors
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+AUTHOR: Yelugoti Mohana Datta - IMT2016012
+
+* Authors
+
+  This paper was written by T.H Myer and I.E Sutherland with inputs from
+  Bolt Beranek and Newman Inc.
+
+  - I.E Sutherland is a computer scientist and Internet pioneer, he was 
+    widely regarded as _father of computer graphics_.
+ 
+  - He received Turing award from Association for Computing Machinery in
+    _1988_ for invention of sketchpad, an early predecessor to GUI.
+
+** Sketchpad
+    [[./images/spad.jpg]]
+* Introduction
+  
+  This paper talks about the flexibility and power needed in the data
+  channel for computer display, it also looks at the design of the 
+  display processor (control part of the display) and how it was 
+  found that making successive improvements to design of display processor
+  lie on a circular path. It also talks about the various challenges faced
+  in associating the display with the core computer.
+
+** Context  
+
+   - The display that the authors are designing is for SDS-940 time shared 
+     computer system.
+
+     - SDS-940 was the first machine designed to directly support
+       time-sharing. (Multiple users using single machine)
+
+   
+** TX-O display 
+   
+   #+CAPTION: TX-0 display
+   [[./images/TX-0.jpg]]
+   
+** DEC-PDP
+   #+CAPTION: DEC-PDP
+   [[./images/pdp-1.jpg]]
+* The Wheel of Reincarnation
+
+  When the authors decided to design the display processor, it got so complex
+  and it resembled a full fledged computer with some special graphic features,
+  and then a strange thing happened, the authors were compelled to add a 
+  second, subsidary processor, which itself began to grow in size, it continued
+  and authors found that they were stuck in this never ending cyclic process.
+  They called it wheel of Reincarnation.
+
+** Stages:
+   
+   - Display from core's central registers.
+   - Introducing a data channel.
+   - Drawing lines and characters.
+   - Introducing
+     - HALT command.
+     - JUMP command.
+     - Subroutine feature for repetitive symbols.
+     - Store-exit command.
+
+** Realisation:
+   
+   We should realize that display data channel is not a mere data channel,
+   but is a processor.
+
+   [[./images/reali.png]]
+
+** Further improvements:
+
+   - Introducing stack.
+   - Adding conditional commands for interactive programs.
+   - Transparency by parameter passing.
+   - Global variables support.
+
+** Full-Blown processor
+
+    [[./images/rel2.png]]
+
+ 
+
