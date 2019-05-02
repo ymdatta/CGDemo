@@ -30,8 +30,8 @@
 </section>
 
 <section>
-<section id="slide-org82f9d5f">
-<h2 id="org82f9d5f"><span class="section-number-2">1</span> Authors</h2>
+<section id="slide-org79c1bc9">
+<h2 id="org79c1bc9"><span class="section-number-2">1</span> Authors</h2>
 <p>
 This paper was written by T.H Myer and I.E Sutherland with inputs from
 Bolt Beranek and Newman Inc.
@@ -47,8 +47,8 @@ widely regarded as <span class="underline">father of computer graphics</span>.</
 </ul>
 
 </section>
-<section id="slide-orgf3679bb">
-<h3 id="orgf3679bb"><span class="section-number-3">1.1</span> Sketchpad</h3>
+<section id="slide-orgbee90de">
+<h3 id="orgbee90de"><span class="section-number-3">1.1</span> Sketchpad</h3>
 
 <div class="figure">
 <p><img src="./images/spad.jpg" alt="spad.jpg" />
@@ -57,8 +57,8 @@ widely regarded as <span class="underline">father of computer graphics</span>.</
 </section>
 </section>
 <section>
-<section id="slide-org092af1b">
-<h2 id="org092af1b"><span class="section-number-2">2</span> Introduction</h2>
+<section id="slide-org9960872">
+<h2 id="org9960872"><span class="section-number-2">2</span> Introduction</h2>
 <p>
 This paper talks about the flexibility and power needed in the data
 channel for computer display, it also looks at the design of the 
@@ -69,8 +69,8 @@ in associating the display with the core computer.
 </p>
 
 </section>
-<section id="slide-org3adfa64">
-<h3 id="org3adfa64"><span class="section-number-3">2.1</span> Context</h3>
+<section id="slide-org45572ed">
+<h3 id="org45572ed"><span class="section-number-3">2.1</span> Context</h3>
 <ul>
 <li>The display that the authors are designing is for SDS-940 time shared 
 computer system.
@@ -85,8 +85,8 @@ time-sharing. (Multiple users using single machine)</li>
 
 
 </section>
-<section id="slide-org5a939c3">
-<h3 id="org5a939c3"><span class="section-number-3">2.2</span> TX-O display</h3>
+<section id="slide-org376eba2">
+<h3 id="org376eba2"><span class="section-number-3">2.2</span> TX-O display</h3>
 
 <div class="figure">
 <p><img src="./images/TX-0.jpg" alt="TX-0.jpg" />
@@ -95,8 +95,8 @@ time-sharing. (Multiple users using single machine)</li>
 </div>
 
 </section>
-<section id="slide-orga677307">
-<h3 id="orga677307"><span class="section-number-3">2.3</span> DEC-PDP</h3>
+<section id="slide-orga85074f">
+<h3 id="orga85074f"><span class="section-number-3">2.3</span> DEC-PDP</h3>
 
 <div class="figure">
 <p><img src="./images/pdp-1.jpg" alt="pdp-1.jpg" />
@@ -106,8 +106,8 @@ time-sharing. (Multiple users using single machine)</li>
 </section>
 </section>
 <section>
-<section id="slide-orgeaa4cd2">
-<h2 id="orgeaa4cd2"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
+<section id="slide-org2ec7ec9">
+<h2 id="org2ec7ec9"><span class="section-number-2">3</span> The Wheel of Reincarnation</h2>
 <p>
 When the authors decided to design the display processor, it got so complex
 and it resembled a full fledged computer with some special graphic features,
@@ -118,8 +118,8 @@ They called it wheel of Reincarnation.
 </p>
 
 </section>
-<section id="slide-orgd4e865b">
-<h3 id="orgd4e865b"><span class="section-number-3">3.1</span> Stages:</h3>
+<section id="slide-org955a935">
+<h3 id="org955a935"><span class="section-number-3">3.1</span> Stages:</h3>
 <ul>
 <li>Display from core's central registers.</li>
 <li>Introducing a data channel.</li>
@@ -136,8 +136,8 @@ They called it wheel of Reincarnation.
 </ul>
 
 </section>
-<section id="slide-org782a9e1">
-<h3 id="org782a9e1"><span class="section-number-3">3.2</span> Realisation:</h3>
+<section id="slide-org78f46cd">
+<h3 id="org78f46cd"><span class="section-number-3">3.2</span> Realisation:</h3>
 <p>
 We should realize that display data channel is not a mere data channel,
 but is a processor.
@@ -150,8 +150,8 @@ but is a processor.
 </div>
 
 </section>
-<section id="slide-orgb1ea567">
-<h3 id="orgb1ea567"><span class="section-number-3">3.3</span> Further improvements:</h3>
+<section id="slide-orgd2b4be7">
+<h3 id="orgd2b4be7"><span class="section-number-3">3.3</span> Further improvements:</h3>
 <ul>
 <li>Introducing stack.</li>
 <li>Adding conditional commands for interactive programs.</li>
@@ -161,8 +161,8 @@ but is a processor.
 </ul>
 
 </section>
-<section id="slide-orge9fe526">
-<h3 id="orge9fe526"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
+<section id="slide-orgdee4ba5">
+<h3 id="orgdee4ba5"><span class="section-number-3">3.4</span> Full-Blown processor</h3>
 
 <div class="figure">
 <p><img src="./images/rel2.png" alt="rel2.png" />
@@ -170,8 +170,8 @@ but is a processor.
 </div>
 
 </section>
-<section id="slide-org0ab4702">
-<h3 id="org0ab4702"><span class="section-number-3">3.5</span> </h3>
+<section id="slide-orgd2316fb">
+<h3 id="orgd2316fb"><span class="section-number-3">3.5</span> </h3>
 <p>
 So, if we take a look at the design, we have built up display channel
 until it itself is a general purpose processor with a display. The
@@ -186,8 +186,8 @@ for many things in the process.
 </p>
 
 </section>
-<section id="slide-orgfd432f5">
-<h3 id="orgfd432f5"><span class="section-number-3">3.6</span> </h3>
+<section id="slide-orgcdcec6e">
+<h3 id="orgcdcec6e"><span class="section-number-3">3.6</span> </h3>
 <p>
 Now, we might argue that much of display processor's power is idle most
 of the time and that it is wasteful to tie up a general purpose processor
@@ -205,13 +205,13 @@ revolution around the wheel.
 </section>
 </section>
 <section>
-<section id="slide-org3ca3538">
-<h2 id="org3ca3538"><span class="section-number-2">4</span> General Questions</h2>
+<section id="slide-org745ae43">
+<h2 id="org745ae43"><span class="section-number-2">4</span> General Questions</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 </section>
-<section id="slide-org7fc0396">
-<h3 id="org7fc0396"><span class="section-number-3">4.1</span> Questions:</h3>
+<section id="slide-org46dddd0">
+<h3 id="org46dddd0"><span class="section-number-3">4.1</span> Questions:</h3>
 <p>
 Viewing this from a broader view, we see that there are mainly two
 questions:
@@ -230,8 +230,8 @@ memory and we wouldn't face these).
 </p>
 
 </section>
-<section id="slide-orgec62348">
-<h3 id="orgec62348"><span class="section-number-3">4.2</span> How much computing power?</h3>
+<section id="slide-org67f7a92">
+<h3 id="org67f7a92"><span class="section-number-3">4.2</span> How much computing power?</h3>
 <p>
 Depends on what we want to do with our display processor.
 </p>
@@ -249,8 +249,8 @@ these are not handled by the display hardware.</li>
 
 </ul>
 </section>
-<section id="slide-org716135e">
-<h3 id="org716135e"><span class="section-number-3">4.3</span> Escaping the wheel</h3>
+<section id="slide-org90ee53c">
+<h3 id="org90ee53c"><span class="section-number-3">4.3</span> Escaping the wheel</h3>
 <p>
 The view suggested by Daniel Bobrow that the display processor need
 not contain general purpose computing power, largely determined the
@@ -267,8 +267,8 @@ the wheel of reincarnation.
 </section>
 </section>
 <section>
-<section id="slide-orgc3886ff">
-<h2 id="orgc3886ff"><span class="section-number-2">5</span> References:</h2>
+<section id="slide-orga19287c">
+<h2 id="orga19287c"><span class="section-number-2">5</span> References:</h2>
 <ul>
 <li><a href="https://www.greatbigcanvas.com/view/dec-pdp-1-computer,1154199/">https://www.greatbigcanvas.com/view/dec-pdp-1-computer,1154199/</a></li>
 <li><a href="https://en.wikipedia.org/wiki/History_of_computing_hardware">https://en.wikipedia.org/wiki/History_of_computing_hardware</a></li>
